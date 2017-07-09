@@ -3,7 +3,7 @@ import tensorflow as tf
 # TODO: import Keras layers you need here
 import numpy as np
 from keras.layers import Input, Flatten, Dense
-from keras.models import Model
+from keras.models import Sequential
 
 flags = tf.app.flags
 FLAGS = flags.FLAGS
@@ -62,7 +62,7 @@ def main(_):
     model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
 
     # Train model
-    model.fit(
+    history = model.fit(
         X_train, 
         y_train, 
         epochs=FLAGS.epochs, 

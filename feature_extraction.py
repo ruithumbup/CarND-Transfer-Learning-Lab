@@ -56,7 +56,7 @@ def main(_):
     # Define model
     input_shape = X_train.shape[1:]
     model = Sequential()
-    model.add(Flatten(input_shape))
+    model.add(Flatten(input_shape=input_shape))
     model.add(Dense(nb_classes, activation='softmax'))
 
     model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
